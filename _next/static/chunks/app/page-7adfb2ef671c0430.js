@@ -53,6 +53,7 @@
       let j = { address: p.UB.auctionBarn, abi: p._A },
         k = { address: p.UB.mooSeats, abi: p.qz };
       function T() {
+        return null;
         var e, t, n;
         let { address: i } = (0, l.m)(),
           {
@@ -1085,6 +1086,7 @@
       let N = Array.from({ length: o.vn }, (e, t) => t + 1),
         M = (e, t) => ((e % t) + t) % t;
       function I() {
+        return null;
         var e, t, n;
         let { address: b } = (0, r.m)(),
           [v, w] = (0, s.useState)(N),
@@ -2030,6 +2032,7 @@
         b = n(82338);
       let v = { address: u.UB.milkhouse, abi: u.y_ };
       function w() {
+        return null;
         var e, t;
         let { address: n } = (0, s.m)(),
           y = (0, r.N)({
@@ -2854,6 +2857,7 @@
       }
       let F = { address: u.UB.mooSeats, abi: u.qz };
       function R() {
+        return null;
         let e = "0xb200000000000000000000716cb18cab70ff5f01",
           t = "https://app.uniswap.org/swap?chain=base&inputCurrency=NATIVE&outputCurrency=0xb200000000000000000000716cb18cab70ff5f01",
           [n, s] = (0, i.useState)(!1);

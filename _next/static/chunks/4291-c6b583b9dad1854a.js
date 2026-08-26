@@ -306,16 +306,9 @@
       var l = n(57437),
         s = n(2265),
         i = n(54887);
-      let r = [
-        { href: "/#token", label: "$MOO" },
-        { href: "/#milkhouse", label: "milkhouse" },
-        { href: "/#herd", label: "the herd" },
-        { href: "/#barn", label: "the barn" },
-        { href: "/#faq", label: "faq" },
-        { href: "/docs", label: "docs" },
-        { href: "/whitepaper", label: "whitepaper" },
-      ];
+      let r = [];
       function o() {
+        return null;
         let [e, t] = (0, s.useState)(!1),
           [n, o] = (0, s.useState)(!1),
           a = (0, s.useRef)(null);
