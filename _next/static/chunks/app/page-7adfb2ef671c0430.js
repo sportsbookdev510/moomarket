@@ -1016,10 +1016,10 @@
                     h && (0, a.jsx)(v.g, { seatId: y, dark: !0 }),
                     !h &&
                       (0, a.jsx)("a", {
-                        href: "#mint",
+                        href: "#token",
                         onClick: j,
                         className: "btn-chunky-milk w-fit",
-                        children: "mint a seat",
+                        children: "buy $MOO",
                       }),
                   ],
                 }),
@@ -1262,7 +1262,7 @@
                         className: "mt-3 text-center label-milk",
                         children: [
                           (0, a.jsx)(c.I, { value: Z }),
-                          " of 1,000 minted \xb7 full reveal at mint out",
+                          " seats \xb7 drag the deck",
                         ],
                       }),
                     ],
@@ -2854,92 +2854,11 @@
       }
       let F = { address: u.UB.mooSeats, abi: u.qz };
       function R() {
-        var e, t, n, m, y, v;
-        let { address: j } = (0, s.m)(),
-          [k, T] = (0, i.useState)(1),
-          [N, M] = (0, i.useState)(!1),
-          I = (0, i.useRef)(!1),
-          E = (0, r.N)({
-            contracts: [
-              { ...F, functionName: "mooToken" },
-              { ...F, functionName: "mintOpen" },
-              { ...F, functionName: "minMooBalance" },
-              { ...F, functionName: "seedAmount" },
-              { ...F, functionName: "wcoin" },
-              { ...F, functionName: "maxPerWallet" },
-              { ...F, functionName: "totalSupply" },
-            ],
-            query: { enabled: u.hr, refetchInterval: 12e3 },
-          }),
-          [A, O, R, _, z, D, q] =
-            null !==
-              (m =
-                null === (e = E.data) || void 0 === e
-                  ? void 0
-                  : e.map((e) => e.result)) && void 0 !== m
-              ? m
-              : [],
-          W = null != _ ? _ : 0n,
-          U = "string" == typeof A && A !== u.r_,
-          Y = (0, r.N)({
-            contracts: [
-              { ...F, functionName: "mintedBy", args: [null != j ? j : u.r_] },
-              { ...F, functionName: "seatsOf", args: [null != j ? j : u.r_] },
-              {
-                address: U ? A : u.r_,
-                abi: u.Wo,
-                functionName: "balanceOf",
-                args: [null != j ? j : u.r_],
-              },
-              {
-                address: null != z ? z : u.r_,
-                abi: u.Wo,
-                functionName: "balanceOf",
-                args: [null != j ? j : u.r_],
-              },
-              {
-                address: null != z ? z : u.r_,
-                abi: u.Wo,
-                functionName: "allowance",
-                args: [null != j ? j : u.r_, u.UB.mooSeats],
-              },
-            ],
-            query: { enabled: u.hr && !!j && U },
-          }),
-          [H, $, G, X, V] =
-            null !==
-              (y =
-                null === (t = Y.data) || void 0 === t
-                  ? void 0
-                  : t.map((e) => e.result)) && void 0 !== y
-              ? y
-              : [],
-          {
-            writeContract: K,
-            data: Q,
-            isPending: Z,
-            error: J,
-            reset: ee,
-          } = (0, l.S)(),
-          et = (0, o.A)({ hash: Q });
-        (0, i.useEffect)(() => {
-          et.isSuccess &&
-            (E.refetch(), Y.refetch(), I.current || ((I.current = !0), M(!0)));
-        }, [et.isSuccess]);
-        let en = Number(null != q ? q : 0n),
-          ea = Number(null != D ? D : 2n),
-          ei = Math.max(0, ea - Number(null != H ? H : 0n)),
-          es = en >= u.vn,
-          er = u.hr && U && !0 === O,
-          el = "bigint" == typeof G && "bigint" == typeof R && G >= R,
-          eo = Math.min(ei, u.vn - en),
-          ed = Math.min(k, Math.max(1, eo)),
-          eu = W * BigInt(ed),
-          ep = 0n === W || ("bigint" == typeof X && X >= eu),
-          ec = W > 0n && ("bigint" != typeof V || V < eu),
-          em = (0, i.useMemo)(() => (null != $ ? $ : []).map(Number), [$]);
+        let e = "0xb200000000000000000000716cb18cab70ff5f01",
+          t = "https://app.uniswap.org/swap?chain=base&inputCurrency=NATIVE&outputCurrency=0xb200000000000000000000716cb18cab70ff5f01",
+          [n, s] = (0, i.useState)(!1);
         return (0, a.jsxs)("section", {
-          id: "mint",
+          id: "token",
           className: "scene-dawn relative overflow-hidden",
           children: [
             (0, a.jsx)(C.r, {}),
@@ -2950,7 +2869,7 @@
                 (0, a.jsxs)(w.Reveal, {
                   children: [
                     (0, a.jsx)(g.SplitHeading, {
-                      text: "mint a seat",
+                      text: "buy $MOO",
                       className:
                         "text-center font-display text-[clamp(2.25rem,5vw,3.5rem)] font-bold",
                     }),
@@ -2958,7 +2877,7 @@
                       className:
                         "mx-auto mt-4 max-w-md text-center text-lg font-bold text-ink/60",
                       children:
-                        "hold $MOO, plant a seed in your own seat. two per wallet. the herd caps at 1,000 and never grows.",
+                        "$MOO is a normal token on base. trade it on uniswap.",
                     }),
                   ],
                 }),
@@ -2979,316 +2898,60 @@
                         className:
                           "relative flex flex-col gap-6 rounded-3xl border-2 border-ink/10 bg-milk p-6 shadow-xl shadow-ink/5 sm:p-8",
                         children: [
-                          et.isSuccess && (0, a.jsx)(c.D, {}),
-                          (0, a.jsx)(B, { supply: en }),
                           (0, a.jsxs)("div", {
                             className: "flex flex-wrap justify-center gap-2",
                             children: [
-                              (0, a.jsxs)("span", {
+                              (0, a.jsx)("span", {
                                 className: "chip-ink",
-                                children: [
-                                  "gate \xb7 hold ",
-                                  "bigint" == typeof R
-                                    ? (0, p.oe)(R, 18, 0)
-                                    : "1,000,000",
-                                  " $MOO",
-                                ],
+                                children: "chain \xb7 base",
                               }),
-                              (0, a.jsxs)("span", {
+                              (0, a.jsx)("span", {
                                 className: "chip-ink",
-                                children: [
-                                  "seed \xb7 ",
-                                  W > 0n
-                                    ? "".concat(
-                                        (0, p.oe)(W),
-                                        " wCOIN into your own bag"
-                                      )
-                                    : "into your own bag",
-                                ],
+                                children: "type \xb7 erc-20",
                               }),
-                              (0, a.jsxs)("span", {
+                              (0, a.jsx)("span", {
                                 className: "chip-ink",
-                                children: ["cap \xb7 ", ea, " per wallet"],
+                                children: "trade \xb7 uniswap",
                               }),
                             ],
                           }),
-                          er
-                            ? es && 0 === em.length
-                              ? (0, a.jsx)(P, {})
-                              : j
-                              ? (0, a.jsxs)(a.Fragment, {
-                                  children: [
-                                    (0, a.jsxs)("div", {
-                                      className:
-                                        "flex flex-wrap items-center justify-between gap-3 border-t border-ink/10 pt-5",
-                                      children: [
-                                        (0, a.jsx)("span", {
-                                          className: "label",
-                                          children: "your $MOO",
-                                        }),
-                                        (0, a.jsx)("span", {
-                                          className:
-                                            "font-display text-2xl font-semibold",
-                                          children:
-                                            "bigint" == typeof G
-                                              ? "".concat(
-                                                  (0, p.oe)(G, 18, 0),
-                                                  " $MOO"
-                                                )
-                                              : (0, a.jsx)(b.b, {
-                                                  className: "h-6 w-24",
-                                                }),
-                                        }),
-                                      ],
-                                    }),
-                                    el
-                                      ? 0 === ei
-                                        ? (0, a.jsxs)("p", {
-                                            className:
-                                              "border-t border-ink/10 pt-5 font-bold text-ink/80",
-                                            children: [
-                                              "this wallet has minted its ",
-                                              ea,
-                                              " seats. the cap is ",
-                                              ea,
-                                              " per wallet.",
-                                            ],
-                                          })
-                                        : es
-                                        ? (0, a.jsx)(P, {})
-                                        : (0, a.jsxs)("div", {
-                                            className: "flex flex-col gap-5",
-                                            children: [
-                                              (0, a.jsxs)("div", {
-                                                className:
-                                                  "flex items-center justify-center gap-3",
-                                                children: [
-                                                  (0, a.jsx)("span", {
-                                                    className: "label",
-                                                    children: "how many",
-                                                  }),
-                                                  [1, 2].map((e) =>
-                                                    (0, a.jsx)(
-                                                      "button",
-                                                      {
-                                                        onClick: () => T(e),
-                                                        disabled: e > eo,
-                                                        className:
-                                                          "h-12 w-12 rounded-full border-2 font-display text-lg font-semibold transition ".concat(
-                                                            ed === e
-                                                              ? "border-ink bg-ink text-milk"
-                                                              : "border-ink/20 bg-milk text-ink hover:border-ink disabled:opacity-30"
-                                                          ),
-                                                        children: e,
-                                                      },
-                                                      e
-                                                    )
-                                                  ),
-                                                ],
-                                              }),
-                                              W > 0n &&
-                                                (0, a.jsxs)("p", {
-                                                  className:
-                                                    "text-sm font-bold text-ink/60",
-                                                  children: [
-                                                    "the seed is ",
-                                                    (0, p.oe)(eu),
-                                                    " wCOIN for ",
-                                                    ed,
-                                                    " ",
-                                                    1 === ed ? "seat" : "seats",
-                                                    ", and it goes into your own",
-                                                    1 === ed
-                                                      ? " seat"
-                                                      : " seats",
-                                                    ". the protocol keeps none of it.",
-                                                  ],
-                                                }),
-                                              ep
-                                                ? ec
-                                                  ? (0, a.jsx)("button", {
-                                                      onClick: () => {
-                                                        ee(),
-                                                          z &&
-                                                            K({
-                                                              address: z,
-                                                              abi: u.Wo,
-                                                              chainId: d.bo.id,
-                                                              functionName:
-                                                                "approve",
-                                                              args: [
-                                                                u.UB.mooSeats,
-                                                                eu,
-                                                              ],
-                                                            });
-                                                      },
-                                                      disabled:
-                                                        Z || et.isLoading,
-                                                      className:
-                                                        "btn-chunky w-full",
-                                                      children: Z
-                                                        ? "confirm in wallet"
-                                                        : et.isLoading
-                                                        ? "approving"
-                                                        : "approve ".concat(
-                                                            (0, p.oe)(eu),
-                                                            " wCOIN"
-                                                          ),
-                                                    })
-                                                  : (0, a.jsx)("button", {
-                                                      onClick: () => {
-                                                        ee(),
-                                                          K({
-                                                            ...F,
-                                                            chainId: d.bo.id,
-                                                            functionName:
-                                                              "mint",
-                                                            args: [BigInt(ed)],
-                                                          });
-                                                      },
-                                                      disabled:
-                                                        Z || et.isLoading,
-                                                      className:
-                                                        "btn-chunky w-full",
-                                                      children: Z
-                                                        ? "confirm in wallet"
-                                                        : et.isLoading
-                                                        ? "minting"
-                                                        : "mint "
-                                                            .concat(ed, " ")
-                                                            .concat(
-                                                              1 === ed
-                                                                ? "seat"
-                                                                : "seats"
-                                                            ),
-                                                    })
-                                                : (0, a.jsxs)("button", {
-                                                    disabled: !0,
-                                                    className:
-                                                      "btn-chunky w-full",
-                                                    children: [
-                                                      "need ",
-                                                      (0, p.oe)(eu),
-                                                      " wCOIN for the seed",
-                                                    ],
-                                                  }),
-                                              J &&
-                                                (0, a.jsx)("p", {
-                                                  className:
-                                                    "text-sm font-bold text-berry",
-                                                  children:
-                                                    null !==
-                                                      (v =
-                                                        null ===
-                                                          (n =
-                                                            J.shortMessage) ||
-                                                        void 0 === n
-                                                          ? void 0
-                                                          : n.toLowerCase()) &&
-                                                    void 0 !== v
-                                                      ? v
-                                                      : "the mint did not go through. try again.",
-                                                }),
-                                              et.isSuccess &&
-                                                (0, a.jsxs)("p", {
-                                                  className:
-                                                    "flex items-center justify-center gap-2 text-sm font-bold text-ink",
-                                                  children: [
-                                                    (0, a.jsx)("span", {
-                                                      "aria-hidden": !0,
-                                                      className:
-                                                        "h-2 w-2 rounded-full bg-meadow",
-                                                    }),
-                                                    "minted. welcome to the herd.",
-                                                  ],
-                                                }),
-                                            ],
-                                          })
-                                      : (0, a.jsxs)("div", {
-                                          className: "flex flex-col gap-4",
-                                          children: [
-                                            (0, a.jsxs)("p", {
-                                              className:
-                                                "font-bold leading-relaxed text-ink/80",
-                                              children: [
-                                                "minting takes at least",
-                                                " ",
-                                                (0, a.jsxs)("span", {
-                                                  className: "text-berry",
-                                                  children: [
-                                                    "bigint" == typeof R
-                                                      ? (0, p.oe)(R, 18, 0)
-                                                      : "...",
-                                                    " $MOO",
-                                                  ],
-                                                }),
-                                                " ",
-                                                "in your wallet. you are",
-                                                " ",
-                                                "bigint" == typeof G &&
-                                                "bigint" == typeof R
-                                                  ? (0, p.oe)(R - G, 18, 0)
-                                                  : "...",
-                                                " ",
-                                                "$MOO short.",
-                                              ],
-                                            }),
-                                            (0, a.jsx)("span", {
-                                              "aria-disabled": "true",
-                                              className:
-                                                "btn-chunky-sm w-fit cursor-not-allowed opacity-60",
-                                              children: "get $MOO",
-                                            }),
-                                            (0, a.jsx)("p", {
-                                              className:
-                                                "text-sm font-bold text-ink/50",
-                                              children:
-                                                "the $MOO trading link lands here at launch.",
-                                            }),
-                                          ],
-                                        }),
-                                  ],
-                                })
-                              : (0, a.jsxs)("div", {
-                                  className:
-                                    "flex flex-col items-center gap-4 border-t border-ink/10 pt-6",
-                                  children: [
-                                    (0, a.jsx)("p", {
-                                      className:
-                                        "text-center font-bold text-ink/80",
-                                      children:
-                                        "connect a wallet to check your $MOO and mint.",
-                                    }),
-                                    (0, a.jsx)(h.ConnectButtonBrand, {
-                                      size: "lg",
-                                    }),
-                                  ],
-                                })
-                            : (0, a.jsx)(L, { deployed: u.hr, tokenSet: U }),
+                          (0, a.jsxs)("div", {
+                            className:
+                              "flex flex-col items-center gap-4 border-t border-ink/10 pt-6 text-center",
+                            children: [
+                              (0, a.jsx)("p", {
+                                className: "label",
+                                children: "contract address",
+                              }),
+                              (0, a.jsxs)("button", {
+                                type: "button",
+                                onClick: () => {
+                                  navigator.clipboard &&
+                                    navigator.clipboard
+                                      .writeText(e)
+                                      .then(() => {
+                                        s(!0),
+                                          window.setTimeout(() => s(!1), 1600);
+                                      });
+                                },
+                                className:
+                                  "w-full break-all rounded-2xl border-2 border-ink/15 bg-oat/50 px-4 py-3 font-body text-sm font-bold text-ink transition hover:border-ink",
+                                children: n ? "copied" : e,
+                              }),
+                              (0, a.jsx)("a", {
+                                href: t,
+                                target: "_blank",
+                                rel: "noopener noreferrer",
+                                className: "btn-chunky w-full text-center",
+                                children: "buy $MOO",
+                              }),
+                            ],
+                          }),
                         ],
                       }),
                     ],
                   }),
                 }),
-                N &&
-                  (0, a.jsx)(f, { seats: em.slice(-ed), onClose: () => M(!1) }),
-                em.length > 0 &&
-                  (0, a.jsxs)("div", {
-                    className: "mx-auto mt-16 max-w-4xl",
-                    children: [
-                      (0, a.jsx)("p", {
-                        className:
-                          "text-center font-display text-2xl font-semibold",
-                        children: "your seats",
-                      }),
-                      (0, a.jsx)("div", {
-                        className: "mt-6 grid gap-6 sm:grid-cols-2",
-                        children: em.map((e) =>
-                          (0, a.jsx)(S, { seatId: e }, e)
-                        ),
-                      }),
-                    ],
-                  }),
               ],
             }),
           ],

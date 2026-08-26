@@ -289,7 +289,7 @@
             ? "btn-chunky"
             : "btn-chunky-sm";
         return (0, l.jsx)("a", {
-          href: "https://app.uniswap.org/swap?chain=base&inputCurrency=NATIVE&outputCurrency=0xComingSoon",
+          href: "https://app.uniswap.org/swap?chain=base&inputCurrency=NATIVE&outputCurrency=0xb200000000000000000000716cb18cab70ff5f01",
           target: "_blank",
           rel: "noopener noreferrer",
           className: w,
